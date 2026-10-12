@@ -40,8 +40,20 @@ costOfBrackets xs =
 -- implement a function to compute an optimal bracketing information;
 -- your implementation should require at most polynomial time
 optBrackets :: [Integer] -> Brackets
-optBrackets xs = undefined
-
+optBrackets xs = 
+  let n = length xs - 1
+      a = L.listArray (0,n) xs :: L.Array Int Integer
+      m = M.fromList [((i,j),cost i j) | i <- [0..n - 1], j <- [i..n-1]]
+      cost i j
+        | i == j = (0, Leaf)
+        | otherwise = foldl1 (\x y -> if fst x <= fst y then x else y) 
+                             [costSplit k | k <- [i .. j - 1]] where
+           costSplit k = 
+             let (c1, b1) = m M.! (i,k)
+                 (c2, b2) = m M.! (k+1,j)
+             in (c1 + c2 + a L.! i * a L.! (k + 1) * a L.! (j + 1), Split b1 k b2)
+  in snd (m M.! (0, n - 1))
+  
 -- generate lists of length at least two with only positive numbers
 processBracketInputs :: [Integer] -> [Integer]
 processBracketInputs xs = map (\ x -> max (abs x) 1) 
@@ -76,7 +88,18 @@ embNaive (Fun _ ss) tt = any (\ si -> embNaive si tt) ss
 -- of the bracketing algorithm, i.e., by storing all
 -- required sub-calls in a map or in an array
 emb :: (Ord f, Ord v) => Term f v -> Term f v -> Bool
-emb s t = undefined
+emb s t = m M.! (s, t)
+  where
+    subterms term@(Var _)    = [term]
+    subterms term@(Fun _ ss) = term : concatMap subterms ss
+
+    m = M.fromList [((s', t'), eval s' t') | s' <- subterms s, t' <- subterms t]
+
+    eval (Var x) t = t == Var x
+    eval (Fun f ss) tt@(Fun g ts) 
+      | f == g = and (zipWith (\si tj -> m M.! (si, tj)) ss ts)
+                 || any (\si -> m M.! (si, tt)) ss
+    eval (Fun _ ss) tt = any (\si -> m M.! (si, tt)) ss
   
 -- testing performance by generating deeply nested terms
 singleTestEmb :: Int -> Bool
