@@ -1,0 +1,36 @@
+cabal-version:      3.14
+name:               AFP
+
+version:            0.1.0.0
+
+author:             René Thiemann
+
+category:           Development
+build-type:         Simple
+
+common warnings
+    ghc-options: 
+      -Wall 
+      -Wno-incomplete-patterns 
+      -Wno-incomplete-uni-patterns 
+      -Wno-unused-matches
+      -Wno-unused-top-binds
+      -Wno-missing-signatures
+
+library
+    import:           warnings
+
+    exposed-modules:  
+      Demo03,
+      Exercise03
+      
+    default-extensions:
+      ExplicitForAll, 
+      RankNTypes,
+      ScopedTypeVariables      
+
+    build-depends:    base >=4.19
+
+    hs-source-dirs:   src
+
+    default-language: Haskell2010
