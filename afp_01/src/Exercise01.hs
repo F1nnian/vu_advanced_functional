@@ -90,7 +90,7 @@ embNaive (Fun _ ss) tt = any (\ si -> embNaive si tt) ss
 emb :: (Ord f, Ord v) => Term f v -> Term f v -> Bool
 emb s t = m M.! (s, t)
   where
-    subterms term@(Var _)    = [term]
+    subterms term@(Var _) = [term]
     subterms term@(Fun _ ss) = term : concatMap subterms ss
 
     m = M.fromList [((s', t'), eval s' t') | s' <- subterms s, t' <- subterms t]
