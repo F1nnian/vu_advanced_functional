@@ -28,7 +28,7 @@ newtype AList a b = AList [(a, b)]
 instance (Eq a) => Map AList a where
   empty = AList []
   get (AList xs) k = lookup k xs
-  put (AList xs) k v = AList ((k, v) : filter (\(k', _) -> k' /= k) xs)
+  put (AList xs) k v = AList ((k, v) : filter (\(i, _) -> i /= k) xs)
   toList (AList xs) = xs
 
 -- binary (unbalanced) trees to implement maps
@@ -36,9 +36,18 @@ data Tree a b = Empty | Node (Tree a b) a b (Tree a b)
 
 instance (Ord a) => Map Tree a where
   empty = Empty
-  get = undefined
-  put = undefined
-  toList = undefined
+  get Empty _ = Nothing
+  get (Node left k v right) key
+    | key < k = get left key
+    | key > k = get right key
+    | otherwise = Just v
+  put Empty key val = Node Empty key val Empty
+  put (Node left k v right) key val
+    | key < k = Node (put left key val) k v right
+    | key > k = Node left k v (put right key val)
+    | otherwise = Node left key val right
+  toList Empty = []
+  toList (Node left k v right) = toList left ++ [(k, v)] ++ toList right
 
 -- Task 2.3
 
@@ -77,15 +86,27 @@ testA = reach testGraph A
 
 testE = reach testGraph E
 
--- TODO: implement reachMain
-
--- reachMain :: TODO
-reachMain g = undefined
+reachMain :: (Map m a, Eq a) => Graph a -> m a [a] -> [(a, [a])] -> [(a, [a])]
+reachMain _ visited [] = toList visited
+reachMain g visited ((x, p) : todos) = case get visited x of
+  Just _ -> reachMain g visited todos
+  Nothing ->
+    let newVisited = put visited x p
+        xSuccessors = [(y, y : p) | (src, y) <- g, src == x]
+     in reachMain g newVisited (xSuccessors ++ todos)
 
 -- Task 2.4
 
-reachTree :: (Eq a) => Graph a -> a -> [[a]]
-reachTree = undefined
+reachTree :: forall a. (Ord a) => Graph a -> a -> [[a]]
+reachTree g start = map (reverse . snd) $ reachMain g (empty :: Tree a [a]) [(start, [start])]
 
-reachAList :: (Eq a) => Graph a -> a -> [[a]]
-reachAList = undefined
+reachAList :: forall a. (Eq a) => Graph a -> a -> [[a]]
+reachAList g start = map (reverse . snd) $ reachMain g (empty :: AList a [a]) [(start, [start])]
+
+testA_Tree = reachTree testGraph A
+
+testE_Tree = reachTree testGraph E
+
+testA_AList = reachAList testGraph A
+
+testE_AList = reachAList testGraph E
