@@ -1,10 +1,12 @@
+{-# LANGUAGE ImportQualifiedPost #-}
+
 module Exercise05 (main) where
 
 import Control.Monad.ST (ST)
-import qualified Data.Array as A
-import qualified Data.Array.MArray as M
+import Data.Array qualified as A
+import Data.Array.MArray qualified as M
 import Data.Array.ST
-import qualified Data.Array.Unboxed as U
+import Data.Array.Unboxed qualified as U
 import Data.List (sort)
 import State
 import System.TimeIt
@@ -44,19 +46,58 @@ labelTerm t = evalState (labelM t) 0
 -- Functional Style
 
 minSort :: (Ord a) => [a] -> [a]
-minSort = undefined
+minSort [] = []
+minSort xs = m : minSort rest
+  where
+    (m, rest) = selectMin xs
+
+    selectMin [y] = (y, [])
+    selectMin (y : ys)
+      | y <= m' = (y, ys)
+      | otherwise = (m', y : rest')
+      where
+        (m', rest') = selectMin ys
 
 -- Monadic Style
 minSortM :: (MArray a e m, Ord e) => [e] -> m (a Int e)
-minSortM = undefined
+minSortM xs = do
+  arr <- M.newListArray (1, n) xs
+  outer arr 1
+  return arr
+  where
+    n = length xs
+
+    outer arr i
+      | i >= n = return ()
+      | otherwise = do
+          minIdx <- findMin arr i i
+          swap arr i minIdx
+          outer arr (i + 1)
+
+    findMin arr minI j
+      | j > n = return minI
+      | otherwise = do
+          vMin <- M.readArray arr minI
+          vJ <- M.readArray arr j
+          if vJ < vMin
+            then findMin arr j (j + 1)
+            else findMin arr minI (j + 1)
+
+    swap arr i j
+      | i == j = return ()
+      | otherwise = do
+          vi <- M.readArray arr i
+          vj <- M.readArray arr j
+          M.writeArray arr i vj
+          M.writeArray arr j vi
 
 -- wrapper to generic monadic implementation
 
 minSortST :: (Ord a) => [a] -> [a]
-minSortST = undefined
+minSortST xs = A.elems (runSTArray (minSortM xs))
 
-minSortSTU :: [Int] -> [Int]
-minSortSTU = undefined
+minSortSTU :: (Ord a, U.IArray U.UArray a, forall s. MArray (STUArray s) a (ST s)) => [a] -> [a]
+minSortSTU xs = U.elems (runSTUArray (minSortM xs))
 
 -- tests
 
