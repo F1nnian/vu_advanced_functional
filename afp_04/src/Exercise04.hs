@@ -1,6 +1,6 @@
 module Exercise04 where
 
-import Data.ByteString.Lazy qualified as L
+import qualified Data.ByteString.Lazy as L
 import Data.Char (chr, isDigit, isSpace)
 import Data.Int (Int64)
 import Data.Word (Word8)
@@ -16,11 +16,11 @@ data Greymap = Greymap
 instance Show Greymap where
   show (Greymap w h m _) = "Greymap " ++ show w ++ "x" ++ show h ++ " " ++ show m
 
-data ParseState = ParseState
-  { string :: L.ByteString,
-    offset :: Int64
-  }
-  deriving (Show)
+-- data ParseState = ParseState
+--   { string :: L.ByteString,
+--     offset :: Int64
+--   }
+--   deriving (Show)
 
 newtype Parse a = Parse
   { runParse :: ParseState -> Either String (a, ParseState)
@@ -29,22 +29,22 @@ newtype Parse a = Parse
 identity :: a -> Parse a
 identity a = Parse (\s -> Right (a, s))
 
-parseByte :: Parse Word8
-parseByte =
-  getState ==> \state ->
-    case L.uncons (string state) of
-      Nothing ->
-        bail "no more input"
-      Just (byte, remainder) ->
-        putState newState ==> \_ ->
-          identity byte
-        where
-          newState =
-            state
-              { string = remainder,
-                offset = newOffset
-              }
-          newOffset = offset state + 1
+-- parseByte :: Parse Word8
+-- parseByte =
+--   getState ==> \state ->
+--     case L.uncons (string state) of
+--       Nothing ->
+--         bail "no more input"
+--       Just (byte, remainder) ->
+--         putState newState ==> \_ ->
+--           identity byte
+--         where
+--           newState =
+--             state
+--               { string = remainder,
+--                 offset = newOffset
+--               }
+--           newOffset = offset state + 1
 
 getState :: Parse ParseState
 getState = Parse (\s -> Right (s, s))
@@ -52,13 +52,13 @@ getState = Parse (\s -> Right (s, s))
 putState :: ParseState -> Parse ()
 putState s = Parse (\_ -> Right ((), s))
 
-bail :: String -> Parse a
-bail err =
-  Parse $
-    ( \s ->
-        Left $
-          "byte offset " ++ show (offset s) ++ ": " ++ err
-    )
+-- bail :: String -> Parse a
+-- bail err =
+--   Parse $
+--     ( \s ->
+--         Left $
+--           "byte offset " ++ show (offset s) ++ ": " ++ err
+--     )
 
 (==>) :: Parse a -> (a -> Parse b) -> Parse b
 firstParser ==> secondParser = Parse chainedParser
@@ -118,8 +118,8 @@ parseNat =
               else identity n
 
 -- run parser
-parse :: Parse a -> L.ByteString -> Either String a
-parse parser input = fst <$> runParse parser (ParseState input 0)
+-- parse :: Parse a -> L.ByteString -> Either String a
+-- parse parser input = fst <$> runParse parser (ParseState input 0)
 
 infoPgm :: FilePath -> IO ()
 infoPgm file = do
@@ -191,10 +191,76 @@ Task 1
 
 -- Task 2.1: define parser
 
+parseTimes :: Int -> Parse a -> Parse [a]
+parseTimes 0 _ = identity []
+parseTimes n p =
+  p ==> \x ->
+    parseTimes (n - 1) p ==> \xs ->
+      identity (x : xs)
+
 parsePlainPGM :: Parse Greymap
-parsePlainPGM = undefined
+parsePlainPGM = 
+    parseWhileWith w2c notWhite ==> \header -> skipSpaces ==>&
+    assert (header == "P2") "invalid plain header" ==>& -- header is P2 
+    parseNat ==> \width -> skipSpaces ==>&
+    parseNat ==> \height -> skipSpaces ==>&
+    parseNat ==> \maxGrey ->
+    parseTimes (width * height) (parsePixel maxGrey) ==> \pixels -> -- uses natural numbers instead of binary bytes 
+    identity (Greymap width height maxGrey (L.pack (map fromIntegral pixels)))
+  where
+    notWhite = (`notElem` "\r\n\t ")
+    parsePixel m = skipSpaces ==>& parseNat ==> \p -> assert (p <= m) "grey value exceeds max" ==>& identity p -- for 2.2 assert max grey value
 
 -- Task 2.2: integrate row and column numbers for error reporting (refactor)
+
+-- add line and column to ParseState
+data ParseState = ParseState
+  { string :: L.ByteString,
+    offset :: Int64,
+    line :: Int,
+    column :: Int
+  }
+  deriving (Show)
+
+-- include line and column in error messages
+bail :: String -> Parse a
+bail err =
+  Parse $
+    ( \s ->
+        Left $
+          "line "
+            ++ show (line s)
+            ++ ", col "
+            ++ show (column s)
+            ++ " (byte offset "
+            ++ show (offset s)
+            ++ "): "
+            ++ err
+    )
+
+-- track line and column numbers in parseByte
+parseByte :: Parse Word8
+parseByte =
+  getState ==> \state ->
+    case L.uncons (string state) of
+      Nothing ->
+        bail "no more input"
+      Just (byte, remainder) ->
+        putState newState ==> \_ ->
+          identity byte
+        where
+          isNL = byte == 10 -- ASCII newline
+          newState =
+            state
+              { string = remainder,
+                offset = offset state + 1,
+                line = if isNL then line state + 1 else line state,
+                column = if isNL then 1 else column state + 1
+              }
+
+-- init ParseState with line and column numbers 1 
+parse :: Parse a -> L.ByteString -> Either String a
+parse parser input = fst <$> runParse parser (ParseState input 0 1 1)
 
 tests = do
   infoPgm "pic_04_plain.pgm"
