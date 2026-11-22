@@ -1,0 +1,15 @@
+; @author Miguel Vitores
+; @author Salvador Lucas
+; @cops 1652
+; secret problem 2022
+; category: TRS
+(format TRS)
+(fun a 0)
+(fun b 0)
+(fun c 0)
+(fun d 0)
+(fun e 0)
+(fun g 2)
+(rule (g (g (g c d) (g b e)) b) a)
+(rule (g a y) (g b b))
+(rule (g x y) (g y x))

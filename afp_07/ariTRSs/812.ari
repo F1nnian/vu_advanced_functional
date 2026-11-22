@@ -1,0 +1,14 @@
+; @cops 957
+; TPDB SRS_Standard/Secret_07_SRS/x02
+(format TRS)
+(fun a 1)
+(fun b 1)
+(fun c 1)
+(fun d 1)
+(fun e 1)
+(rule (a (b x)) (c (d x)))
+(rule (d (d x)) (b (e x)))
+(rule (b x) (d (c x)))
+(rule (d x) x)
+(rule (e (c x)) (d (a x)))
+(rule (a x) (e (d x)))

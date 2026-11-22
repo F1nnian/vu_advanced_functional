@@ -1,0 +1,15 @@
+; @author Takahito Aoto
+; @author Junichi Yoshida
+; @author Yoshihito Toyama
+; @doi 10.1007/s00200-004-0148-6
+; @cops 29
+; [9] Example 5
+(format TRS)
+(fun + 2)
+(fun - 1)
+(fun 0 0)
+(rule (- (+ x (- x))) 0)
+(rule (+ x (- x)) 0)
+(rule (- (+ 0 0)) 0)
+(rule (+ 0 0) 0)
+(rule (- 0) 0)

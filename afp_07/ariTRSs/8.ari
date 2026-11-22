@@ -1,0 +1,12 @@
+; @author Takahito Aoto
+; @author Junichi Yoshida
+; @author Yoshihito Toyama
+; @doi 10.1017/CBO9781139172752
+; @cops 8
+; [4] Example 6.3.4
+(format TRS)
+(fun + 2)
+(fun s 1)
+(rule (+ (s x) y) (s (+ x y)))
+(rule (+ x (s y)) (s (+ x y)))
+(rule (+ x y) (+ y x))

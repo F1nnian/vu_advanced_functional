@@ -1,0 +1,11 @@
+; @author Takahito Aoto
+; @author Junichi Yoshida
+; @author Yoshihito Toyama
+; @doi 10.1017/CBO9781139172752
+; @cops 4
+; [4] Exercise 6.17
+(format TRS)
+(fun or 2)
+(fun true 0)
+(rule (or true true) true)
+(rule (or x y) (or y x))

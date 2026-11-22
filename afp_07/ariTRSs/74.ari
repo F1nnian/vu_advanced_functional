@@ -1,0 +1,10 @@
+; @author Takahito Aoto
+; @author Junichi Yoshida
+; @author Yoshihito Toyama
+; @doi 10.1007/BFb0052357
+; @cops 75
+; [21] TRS R_3
+(format TRS)
+(fun f 1)
+(rule (f x) x)
+(rule (f x) (f (f x)))

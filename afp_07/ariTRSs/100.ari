@@ -1,0 +1,11 @@
+; @author Takahito Aoto
+; @author Junichi Yoshida
+; @author Yoshihito Toyama
+; @cops 101
+(format TRS)
+(fun A 0)
+(fun B 0)
+(fun F 2)
+(fun G 1)
+(rule (F x x) (G x))
+(rule A B)

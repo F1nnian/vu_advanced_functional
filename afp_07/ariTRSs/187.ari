@@ -1,0 +1,17 @@
+; @author Takahito Aoto
+; @author Yoshihito Toyama
+; @cops 193
+; full experiments for [35]
+(format TRS)
+(fun F 0)
+(fun T 0)
+(fun exor 2)
+(fun not 1)
+(rule (not T) F)
+(rule (not F) T)
+(rule (not (not x)) x)
+(rule (exor x T) (not x))
+(rule (exor x F) x)
+(rule (exor (not x) y) (not (exor x y)))
+(rule (exor (exor x y) z) (exor x (exor y z)))
+(rule (exor x y) (exor y x))

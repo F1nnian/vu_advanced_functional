@@ -1,0 +1,16 @@
+; @author Takahito Aoto
+; @cops 598
+; experiments for [125]
+(format TRS)
+(fun + 2)
+(fun - 2)
+(fun 0 0)
+(fun if 3)
+(fun s 1)
+(rule (+ x y) (if y x (s (+ x (- y (s 0))))))
+(rule (if 0 y z) y)
+(rule (if (s x) y z) z)
+(rule (if x y y) y)
+(rule (- x 0) x)
+(rule (- 0 (s y)) 0)
+(rule (- (s x) (s y)) (- x y))

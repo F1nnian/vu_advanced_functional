@@ -1,0 +1,7 @@
+; @doi 10.4230/LIPIcs.RTA.2015.257
+; @cops 442
+; [81] Example 1
+(format TRS)
+(fun f 1)
+(rule (f (f x)) x)
+(rule (f x) (f (f x)))

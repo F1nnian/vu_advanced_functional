@@ -1,0 +1,10 @@
+; @cops 414
+; full experiments for [80]
+(format TRS)
+(fun a 0)
+(fun f 2)
+(fun g 1)
+(rule (f x (g y)) (f (g y) (g x)))
+(rule (f x x) a)
+(rule (f x y) (f y x))
+(rule (g x) x)

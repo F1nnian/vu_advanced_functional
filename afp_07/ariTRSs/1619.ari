@@ -1,0 +1,12 @@
+; @author Mizuhito Ogawa
+; @author Masahiko Sakai
+; confluent
+(format TRS)
+(fun c 0)
+(fun d 2)
+(fun f 1)
+(fun g 1)
+(fun h 1)
+(rule (d x x) (h x))
+(rule (f x) (d x (f c)))
+(rule (h x) (f (g x)))

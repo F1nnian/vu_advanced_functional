@@ -1,0 +1,10 @@
+; @author Hans Zantema
+; @cops 1285
+(format TRS)
+(fun a 1)
+(fun b 1)
+(fun p 0)
+(rule (a (b (a x))) (b (a (b x))))
+(rule (b (a (b x))) (a (b (a x))))
+(rule p (a p))
+(rule p (b p))

@@ -1,0 +1,15 @@
+; @cops 961
+; TPDB SRS_Standard/Zantema_04/syracuse
+(format TRS)
+(fun 1 1)
+(fun b 1)
+(fun h 1)
+(fun s 1)
+(fun t 1)
+(rule (h (1 (1 x))) (1 (h x)))
+(rule (1 (1 (h (b x)))) (1 (1 (s (b x)))))
+(rule (1 (s x)) (s (1 x)))
+(rule (b (s x)) (b (h x)))
+(rule (h (1 (b x))) (t (1 (1 (b x)))))
+(rule (1 (t x)) (t (1 (1 (1 x)))))
+(rule (b (t x)) (b (h x)))

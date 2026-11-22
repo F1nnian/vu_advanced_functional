@@ -1,0 +1,10 @@
+; @doi 10.4230/LIPIcs.RTA.2012.165
+; @cops 212
+; [37] Example 3.1 (R)
+(format TRS)
+(fun a 0)
+(fun b 0)
+(fun f 1)
+(rule a b)
+(rule a (f a))
+(rule b (f (f b)))

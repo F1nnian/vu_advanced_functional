@@ -1,0 +1,21 @@
+; @author Takahito Aoto
+; @cops 631
+; experiments for [125]
+(format TRS)
+(fun 0 0)
+(fun inv 1)
+(fun minus 2)
+(fun p 1)
+(fun s 1)
+(rule (inv 0) 0)
+(rule (inv (s x)) (p (inv x)))
+(rule (inv (p x)) (s (inv x)))
+(rule (minus x 0) x)
+(rule (minus x (p y)) (s (minus x y)))
+(rule (minus x (s y)) (p (minus x y)))
+(rule (minus 0 x) (inv x))
+(rule (minus (s x) (s y)) (minus x y))
+(rule (minus (p x) (p y)) (minus x y))
+(rule (inv x) (minus 0 x))
+(rule (s (p x)) x)
+(rule (p (s x)) x)

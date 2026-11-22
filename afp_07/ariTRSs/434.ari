@@ -1,0 +1,21 @@
+; @author Bertram Felgenhauer
+; @doi 10.1006/jsco.1996.0002
+; @cops 525
+; [112] p. 31 (signature extension and currying do not preserve NFP)
+(format TRS)
+(fun a 0)
+(fun b 0)
+(fun c 0)
+(fun f 2)
+(fun g 0)
+(rule (f x x) g)
+(rule a b)
+(rule a c)
+(rule b b)
+(rule c c)
+(rule (f a x) g)
+(rule (f b x) g)
+(rule (f c x) g)
+(rule (f x a) g)
+(rule (f x b) g)
+(rule (f x c) g)

@@ -1,0 +1,14 @@
+; @doi 10.2168/LMCS-8(1:31)2012
+; @cops 121
+; [35] Example 3.37 (R_8)
+(format TRS)
+(fun f 2)
+(fun g 1)
+(fun h 1)
+(rule (f (g x) (g y)) (f (g x) (h y)))
+(rule (f (h x) (g y)) (f (g x) (g y)))
+(rule (f (g x) (h y)) (f x y))
+(rule (f (h x) (h y)) (f y x))
+(rule (f x y) (f y x))
+(rule (g x) (h x))
+(rule (h x) (g x))

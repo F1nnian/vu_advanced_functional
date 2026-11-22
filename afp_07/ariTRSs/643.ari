@@ -1,0 +1,14 @@
+; @author Julian Nagele
+; @doi 10.23638/LMCS-13(2:4)2017
+; @cops 761
+; [131] Example 5.2
+(format TRS)
+(fun a 0)
+(fun b 0)
+(fun c 0)
+(fun d 0)
+(rule a b)
+(rule a d)
+(rule b a)
+(rule c a)
+(rule c b)

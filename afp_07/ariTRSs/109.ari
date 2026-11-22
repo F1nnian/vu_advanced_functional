@@ -1,0 +1,20 @@
+; @doi 10.1007/978-3-642-12251-4_20
+; @cops 111
+; [32] Example 3.2
+(format TRS)
+(fun a 0)
+(fun b 0)
+(fun c 0)
+(fun d 0)
+(fun e 0)
+(fun g 1)
+(fun h 1)
+(rule a b)
+(rule a c)
+(rule a e)
+(rule b d)
+(rule c a)
+(rule d a)
+(rule d e)
+(rule (g x) (h a))
+(rule (h x) e)

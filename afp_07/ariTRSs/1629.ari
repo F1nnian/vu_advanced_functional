@@ -1,0 +1,7 @@
+; @author Nao Hirokawa
+; secret problem 2026
+; category: TRS
+(format TRS)
+(fun a 1)
+(fun b 1)
+(rule (a (b (a x))) (a (b (a (b (a (b x)))))))

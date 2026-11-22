@@ -1,0 +1,10 @@
+; @author Dominik Klein
+; @doi 10.1007/978-3-642-28717-6_21
+; @cops 119
+; [34] Example 9
+(format TRS)
+(fun f 2)
+(fun infty 0)
+(fun s 1)
+(rule (f x x) (s (s x)))
+(rule infty (s infty))

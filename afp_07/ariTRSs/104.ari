@@ -1,0 +1,9 @@
+; @cops 106
+; addition + commutative law
+(format TRS)
+(fun + 2)
+(fun 0 0)
+(fun s 1)
+(rule (+ x 0) x)
+(rule (+ x (s y)) (s (+ x y)))
+(rule (+ x y) (+ y x))

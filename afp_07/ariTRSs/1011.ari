@@ -1,0 +1,27 @@
+; @author Raul Gutierrez
+; @cops 1157
+; secret problem 2021
+; category: SRS
+(format TRS)
+(fun P 1)
+(fun Q 1)
+(fun a 1)
+(fun b 1)
+(fun c 1)
+(fun p 1)
+(fun q 1)
+(rule (a (b x)) (b (c x)))
+(rule (a (c x)) (c (a x)))
+(rule (b (b x)) (a (c x)))
+(rule (c (b x)) (b (c x)))
+(rule (c (b x)) (c (c x)))
+(rule (c (c x)) (c (b x)))
+(rule (P x) (Q (Q (p x))))
+(rule (p (p x)) (q (q x)))
+(rule (p (Q (Q x))) (Q (Q (p x))))
+(rule (Q (p (q x))) (q (p (Q x))))
+(rule (q (q (p x))) (p (q (q x))))
+(rule (q (Q x)) x)
+(rule (Q (q x)) x)
+(rule (p (P x)) x)
+(rule (P (p x)) x)

@@ -1,0 +1,14 @@
+; @author Takahito Aoto
+; @author Junichi Yoshida
+; @author Yoshihito Toyama
+; @doi 10.1017/CBO9781139172752
+; @cops 11
+; [4] Exercise 6.5(b)
+(format TRS)
+(fun + 2)
+(fun 0 0)
+(fun s 1)
+(rule (+ 0 y) y)
+(rule (+ (s x) y) (s (+ x y)))
+(rule (+ x 0) x)
+(rule (+ x (s y)) (s (+ x y)))

@@ -1,0 +1,9 @@
+; @cops 510
+; [111] p. 29 (GUNC & ~UNC & ~GNFP)
+(format TRS)
+(fun a 0)
+(fun b 0)
+(fun f 2)
+(rule a a)
+(rule (f b x) b)
+(rule (f x a) a)

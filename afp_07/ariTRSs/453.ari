@@ -1,0 +1,15 @@
+; @author Aart Middeldorp
+; @cops 544
+; [120] Example 3
+(format TRS)
+(fun c 0)
+(fun f 1)
+(fun g 1)
+(fun h 1)
+(fun k 1)
+(rule (g x) (h (k x)))
+(rule (g x) x)
+(rule (h (k x)) (f x))
+(rule (f x) x)
+(rule (k c) c)
+(rule (f c) (g c))

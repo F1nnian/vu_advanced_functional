@@ -1,0 +1,14 @@
+; @author Johannes Waldmann
+; @cops 1003
+(format TRS)
+(fun a 1)
+(fun b 1)
+(fun c 1)
+(rule (b (b x)) (c (b x)))
+(rule (b (c x)) (b (b x)))
+(rule (a (b x)) (b (a x)))
+(rule (c (b x)) (a (a x)))
+(rule (a (c x)) (a (b x)))
+(rule (b (c x)) (c (a x)))
+(rule (b (a x)) (b (b x)))
+(rule (a (a x)) (b (c x)))

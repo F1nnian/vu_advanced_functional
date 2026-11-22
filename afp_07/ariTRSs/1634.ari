@@ -1,0 +1,12 @@
+; @author Nao Hirokawa
+; secret problem 2026
+; category: TRS
+(format TRS)
+(fun a 0)
+(fun f 0)
+(fun g 0)
+(fun h 3)
+(rule (h g a a) (h f a a))
+(rule (h x (h z y y) y) (h x y y))
+(rule (h x y (h z y y)) (h x y y))
+(rule a (h g a a))

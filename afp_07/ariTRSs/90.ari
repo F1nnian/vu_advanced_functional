@@ -1,0 +1,13 @@
+; @author Takahito Aoto
+; @author Junichi Yoshida
+; @author Yoshihito Toyama
+; @cops 91
+; from Toyama (LA symposium 1998)
+(format TRS)
+(fun a 2)
+(fun b 1)
+(fun f 1)
+(fun g 1)
+(rule (a (f x) y) (f (a (f y) x)))
+(rule (a (b x) y) (a x (b x)))
+(rule (a (g x) x) (g (b (g x))))

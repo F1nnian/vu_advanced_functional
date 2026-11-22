@@ -1,0 +1,11 @@
+; @author Takahito Aoto
+; @author Yoshihito Toyama
+; @cops 128
+; full experiments for [35]
+(format TRS)
+(fun + 2)
+(fun 0 0)
+(fun s 1)
+(rule (+ 0 y) y)
+(rule (+ x (s y)) (s (+ x y)))
+(rule (+ x y) (+ y x))

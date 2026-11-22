@@ -1,0 +1,12 @@
+; @cops 506
+; [111] p. 29
+(format TRS)
+(fun a 0)
+(fun f 1)
+(fun g 1)
+(rule (f (f (f x))) a)
+(rule (f (f a)) a)
+(rule (f a) a)
+(rule (f (f (g (g x)))) (f a))
+(rule (g (f a)) a)
+(rule (g a) a)

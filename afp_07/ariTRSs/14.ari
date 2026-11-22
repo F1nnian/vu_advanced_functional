@@ -1,0 +1,11 @@
+; @author Takahito Aoto
+; @author Junichi Yoshida
+; @author Yoshihito Toyama
+; @doi 10.1017/CBO9781139172752
+; @cops 14
+; [4] Exercise 6.5(e)
+(format TRS)
+(fun 1 0)
+(fun f 2)
+(rule (f (f x y) z) (f x (f y z)))
+(rule (f 1 x) x)

@@ -1,0 +1,16 @@
+; @author Aart Middeldorp
+; @cops 540
+; [117] Example 4.3.12
+(format TRS)
+(fun 0 0)
+(fun L 1)
+(fun N 2)
+(fun max 1)
+(fun s 1)
+(rule (max (L x)) x)
+(rule (max (N (L 0) (L y))) y)
+(rule (max (N (L (s x)) (L (s y)))) (s (max (N (L x) (L y)))))
+(rule (max (N (L x) (N y z))) (max (N (L x) (L (max (N y z))))))
+(rule (N x (N y z)) (N (N x y) z))
+(rule (N (N x y) z) (N x (N y z)))
+(rule (N x y) (N y x))

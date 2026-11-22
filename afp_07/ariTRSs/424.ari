@@ -1,0 +1,9 @@
+; @cops 505
+; [111] p. 27
+(format TRS)
+(fun a 0)
+(fun b 0)
+(fun f 2)
+(rule a b)
+(rule (f x a) b)
+(rule (f b b) b)

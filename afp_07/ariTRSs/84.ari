@@ -1,0 +1,13 @@
+; @author Takahito Aoto
+; @author Junichi Yoshida
+; @author Yoshihito Toyama
+; @cops 85
+; [26] english abstract
+(format TRS)
+(fun f 1)
+(fun g 1)
+(fun h 2)
+(fun s 1)
+(rule (f (g x)) (h (g x) (g x)))
+(rule (f (s x)) (h (s x) (s x)))
+(rule (g x) (s x))

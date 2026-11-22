@@ -1,0 +1,10 @@
+; @cops 960
+; TPDB SRS_Standard/Waldmann_07_size12/size-12-alpha-3-num-284
+(format TRS)
+(fun a 1)
+(fun b 1)
+(fun c 1)
+(rule (a x) x)
+(rule (a (b x)) (c (b (b (a (a x))))))
+(rule (b x) (c x))
+(rule (c (c x)) x)

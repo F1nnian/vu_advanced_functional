@@ -1,0 +1,18 @@
+; @author Takahito Aoto
+; @author Junichi Yoshida
+; @author Yoshihito Toyama
+; @doi 10.1007/11805618_6
+; @cops 21
+; [7] Example 3
+(format TRS)
+(fun a 0)
+(fun b 0)
+(fun c 0)
+(fun d 0)
+(fun h 1)
+(rule b a)
+(rule b c)
+(rule c (h b))
+(rule c d)
+(rule a (h a))
+(rule d (h d))

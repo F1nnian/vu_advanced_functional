@@ -1,0 +1,7 @@
+; @cops 955
+; TPDB SRS_Standard/Mixed_SRS/09
+(format TRS)
+(fun a 1)
+(fun b 1)
+(rule (a (b (a x))) (b (b (b (a x)))))
+(rule (b (b (b (a x)))) (a (a (a (b x)))))

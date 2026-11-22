@@ -1,0 +1,12 @@
+; @author Franziska Rapp
+; @cops 557
+; [111] Example 1 with additional constant c
+(format TRS)
+(fun f 2)
+(fun a 0)
+(fun b 0)
+(fun c 0)
+(rule a b)
+(rule (f x a) (f b b))
+(rule (f b x) (f b b))
+(rule (f (f x y) z) (f b b))

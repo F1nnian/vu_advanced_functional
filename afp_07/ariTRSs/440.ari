@@ -1,0 +1,16 @@
+; @author Aart Middeldorp
+; @cops 531
+; [113] Example 3.26
+(format TRS)
+(fun + 2)
+(fun - 1)
+(fun 0 0)
+(rule (+ x 0) x)
+(rule (- 0) 0)
+(rule (- (- x)) x)
+(rule (- (+ x y)) (+ (- x) (- y)))
+(rule (+ x (- x)) 0)
+(rule (+ (+ x (- x)) y) y)
+(rule (+ (+ x y) z) (+ x (+ y z)))
+(rule (+ x (+ y z)) (+ (+ x y) z))
+(rule (+ x y) (+ y x))

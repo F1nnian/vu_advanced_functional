@@ -1,0 +1,22 @@
+; @author Takahito Aoto
+; @author Junichi Yoshida
+; @author Yoshihito Toyama
+; @cops 66
+; [17] Example 6
+(format TRS)
+(fun a 0)
+(fun b 0)
+(fun c 0)
+(fun d 0)
+(fun f 1)
+(fun g 3)
+(fun h 2)
+(fun k1 1)
+(fun k2 1)
+(rule (f (g x a b)) x)
+(rule (g (f (h c d)) x y) (h (k1 x) (k2 y)))
+(rule (k1 a) c)
+(rule (k2 b) d)
+(rule (f (h (k1 a) (k2 b))) (f (h c d)))
+(rule (f (h c (k2 b))) (f (h c d)))
+(rule (f (h (k1 a) d)) (f (h c d)))

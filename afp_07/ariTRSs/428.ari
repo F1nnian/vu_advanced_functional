@@ -1,0 +1,9 @@
+; @cops 509
+; [111] p. 29 (GNFP & ~NFP & ~GCR)
+(format TRS)
+(fun a 0)
+(fun b 0)
+(fun f 2)
+(rule a b)
+(rule (f b b) (f a a))
+(rule (f x a) (f a a))

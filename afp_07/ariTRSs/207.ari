@@ -1,0 +1,14 @@
+; @cops 217
+; [8] Example 2; correction of Cops #28
+(format TRS)
+(fun a 0)
+(fun c 0)
+(fun f 2)
+(fun g 1)
+(fun g1 1)
+(fun g2 1)
+(fun g3 1)
+(fun h 2)
+(rule (f x x) a)
+(rule c (h c (g c)))
+(rule (h (g3 x) (g1 (g2 x))) (f x (h x (g x))))

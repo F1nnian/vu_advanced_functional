@@ -1,0 +1,6 @@
+; @doi 10.1007/978-3-0348-8442-6
+; @cops 126
+; [95] p. 14 (LD variation)
+(format TRS)
+(fun f 2)
+(rule (f (f x y) z) (f (f x z) (f y z)))

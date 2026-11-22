@@ -1,0 +1,8 @@
+; @cops 963
+; TPDB SRS_Standard/Bouchare_06/09
+(format TRS)
+(fun a 1)
+(fun b 1)
+(rule (b (a (a x))) (a x))
+(rule (a (a (a x))) (b (b (b x))))
+(rule (b (b x)) (a (b (a x))))

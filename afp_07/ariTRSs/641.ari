@@ -1,0 +1,23 @@
+; @author Franziska Rapp
+; @cops 741
+; handcrafted "UNC & ~NFP"
+(format TRS)
+(fun a 0)
+(fun b 0)
+(fun f 2)
+(fun false 0)
+(fun g 1)
+(fun if 3)
+(fun true 0)
+(rule (if true a x) a)
+(rule (if true b x) b)
+(rule (if true (g a) x) (g a))
+(rule (if true (g b) x) (g b))
+(rule (if false x a) a)
+(rule (if false x b) b)
+(rule (if false x (g a)) (g a))
+(rule (if false x (g b)) (g b))
+(rule (g a) (g (g a)))
+(rule (g b) a)
+(rule (f a b) b)
+(rule (f (g (g a)) x) b)

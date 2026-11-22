@@ -1,0 +1,9 @@
+; @author Takahito Aoto
+; @cops 575
+; experiments for [36]
+(format TRS)
+(fun s 1)
+(fun p 1)
+(fun 0 0)
+(rule (s (p x)) x)
+(rule (p (s x)) x)

@@ -1,0 +1,7 @@
+; @cops 425
+(format TRS)
+(fun a 0)
+(fun f 2)
+(fun g 2)
+(rule (f a (f a (f a (f a y)))) (f a (f a (f a (g y (f a y))))))
+(rule (f x y) (g y (f x y)))

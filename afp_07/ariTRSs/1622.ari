@@ -1,0 +1,29 @@
+; @author Jan-Christoph Kassing
+; @author Tobias Sokolowski
+; secret problem 2025
+; category: TRS
+
+(format TRS)
+(fun inc 1)
+(fun succ 1)
+(fun nullnil 0)
+(fun minus 2)
+(fun plus 2)
+
+(fun inflist 1)
+(fun app 2)
+(fun cons 2)
+(fun num 1)
+(fun build 2)
+(fun list 1)
+
+(rule (minus x x) (num nullnil))
+(rule (minus (num (succ x)) (num (succ y))) (minus x y))
+(rule (plus nullnil (num x)) (num x))
+(rule (plus (num (succ x)) (num y)) (inc (plus (num x) (num y))))
+(rule (inc x) (num (succ x)))
+
+(rule (inflist x) (build x (inflist x)))
+(rule (build x y) (list (cons x y)))
+(rule (app nullnil (list x)) (list x))
+(rule (app (list (cons x y)) (list w)) (app y (build x (list w))))

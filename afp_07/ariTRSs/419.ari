@@ -1,0 +1,9 @@
+; @cops 498
+; [103] Example 2.5
+(format TRS)
+(fun c 0)
+(fun d 0)
+(fun f 2)
+(fun h 2)
+(rule (f (h x d) y) (f (h y d) x))
+(rule (h c x) (h x x))

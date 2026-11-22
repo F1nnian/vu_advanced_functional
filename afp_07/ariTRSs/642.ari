@@ -1,0 +1,9 @@
+; @author Julian Nagele
+; @cops 760
+; [130] Example 3.29
+(format TRS)
+(fun f 1)
+(fun g 1)
+(rule (f x) (f (f x)))
+(rule (g x) (f x))
+(rule (f x) (g x))

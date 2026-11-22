@@ -1,0 +1,10 @@
+; @cops 104
+; Combinatory Logic
+(format TRS)
+(fun Ap 2)
+(fun I 0)
+(fun K 0)
+(fun S 0)
+(rule (Ap (Ap (Ap S x) y) z) (Ap (Ap x z) (Ap y z)))
+(rule (Ap (Ap K x) y) x)
+(rule (Ap I x) x)

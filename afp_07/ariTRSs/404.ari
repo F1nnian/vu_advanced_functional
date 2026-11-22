@@ -1,0 +1,8 @@
+; @doi 10.4230/LIPIcs.RTA.2015.257
+; @cops 424
+; [81] Example 13
+(format TRS)
+(fun f 1)
+(fun g 2)
+(rule (f (f (f (f x)))) (f (f (f (g x (f x))))))
+(rule (f x) (g x (f x)))

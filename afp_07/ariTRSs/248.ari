@@ -1,0 +1,18 @@
+; @author Nao Hirokawa
+; @cops 259
+(format TRS)
+(fun + 2)
+(fun - 2)
+(fun 0 0)
+(fun p 1)
+(fun s 1)
+(rule (- x x) 0)
+(rule (+ x y) (+ y x))
+(rule (+ 0 x) x)
+(rule (+ x 0) x)
+(rule (+ (s x) y) (s (+ x y)))
+(rule (+ x (s y)) (s (+ y x)))
+(rule (+ (p x) y) (p (+ x y)))
+(rule (+ x (p y)) (p (+ y x)))
+(rule (s (p x)) x)
+(rule (p (s x)) x)

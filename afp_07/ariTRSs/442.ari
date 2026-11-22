@@ -1,0 +1,23 @@
+; @author Aart Middeldorp
+; @doi 10.1016/0004-3702(85)90074-8
+; @cops 533
+; [114] p. 261/262 (BR)
+(format TRS)
+(fun * 2)
+(fun + 2)
+(fun - 1)
+(fun 0 0)
+(fun 1 0)
+(rule (+ x 0) x)
+(rule (* x 0) 0)
+(rule (* x 1) x)
+(rule (* x x) x)
+(rule (* (+ x y) z) (+ (* x z) (* y z)))
+(rule (+ x x) 0)
+(rule (- x) x)
+(rule (+ (+ x y) z) (+ x (+ y z)))
+(rule (+ x (+ y z)) (+ (+ x y) z))
+(rule (+ x y) (+ y x))
+(rule (* (* x y) z) (* x (* y z)))
+(rule (* x (* y z)) (* (* x y) z))
+(rule (* x y) (* y x))

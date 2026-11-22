@@ -1,0 +1,12 @@
+; @doi 10.1007/11538363_37
+; @cops 225
+; [41] Example 1
+(format TRS)
+(fun a 0)
+(fun a' 0)
+(fun b 0)
+(fun c 0)
+(fun f 1)
+(rule (f a) b)
+(rule a a')
+(rule (f b) c)

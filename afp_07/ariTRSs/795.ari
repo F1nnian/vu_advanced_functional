@@ -1,0 +1,6 @@
+; @cops 940
+; TPDB SRS_Standard/Wenzel_16/aabababab-ababababaaaaab.srs
+(format TRS)
+(fun a 1)
+(fun b 1)
+(rule (a (a (b (a (b (a (b (a (b x))))))))) (a (b (a (b (a (b (a (b (a (a (a (a (a (b x)))))))))))))))

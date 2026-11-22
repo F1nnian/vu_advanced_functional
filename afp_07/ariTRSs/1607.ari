@@ -1,0 +1,11 @@
+; @author Takahito Aoto
+; secret problem 2024
+; category: UNR
+(format TRS)
+(fun a 0)
+(fun b 0)
+(fun f 2)
+(fun g 1)
+(rule a b)
+(rule (f (g b) b) (f (g a) a))
+(rule (f (g x) a) (f (g a) a))

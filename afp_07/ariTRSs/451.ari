@@ -1,0 +1,15 @@
+; @author Aart Middeldorp
+; @doi 10.1137/0215084
+; @cops 542
+; [119] p. 1173
+(format TRS)
+(fun + 2)
+(fun - 1)
+(fun 0 0)
+(fun 1 0)
+(rule (+ 0 x) x)
+(rule (+ 1 (- 1)) 0)
+(rule (+ (+ x 1) (- 1)) x)
+(rule (+ x (+ y z)) (+ (+ x y) z))
+(rule (+ (+ x y) z) (+ x (+ y z)))
+(rule (+ x y) (+ y x))

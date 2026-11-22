@@ -1,0 +1,9 @@
+; @doi 10.1007/978-3-319-43144-4_18
+; @cops 504
+; [110] Example 7
+(format TRS)
+(fun * 2)
+(fun + 2)
+(rule (+ x y) (+ y x))
+(rule (* (+ x y) z) (+ (* x z) (* y z)))
+(rule (* (+ y x) z) (+ (* x z) (* y z)))

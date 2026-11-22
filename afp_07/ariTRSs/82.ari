@@ -1,0 +1,20 @@
+; @author Takahito Aoto
+; @author Junichi Yoshida
+; @author Yoshihito Toyama
+; @cops 83
+; [26] Example 4.2
+(format TRS)
+(fun + 2)
+(fun 0 0)
+(fun d 1)
+(fun f 1)
+(fun g 1)
+(fun s 1)
+(rule (+ x 0) x)
+(rule (+ x (s y)) (s (+ x y)))
+(rule (d 0) 0)
+(rule (d (s x)) (s (s (d x))))
+(rule (f 0) 0)
+(rule (f (s x)) (+ (+ (s x) (s x)) (s x)))
+(rule (f (g 0)) (+ (+ (g 0) (g 0)) (g 0)))
+(rule (g x) (s (d x)))

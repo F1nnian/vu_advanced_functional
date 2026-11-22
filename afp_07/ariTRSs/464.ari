@@ -1,0 +1,12 @@
+; @author anonymous
+; @cops 555
+; from van Oostrom (AJSW 2016)
+(format TRS)
+(fun b 0)
+(fun f 2)
+(fun g 1)
+(fun h 1)
+(fun k 2)
+(rule (g (f b x)) (g (h (h (f (f (h (k (k x x) x)) (h (k (k x x) x))) (h (k (k x x) x)))))))
+(rule (f x b) (h (f (f x x) x)))
+(rule (k x b) (f x b))

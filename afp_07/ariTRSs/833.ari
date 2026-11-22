@@ -1,0 +1,10 @@
+; @cops 978
+; TPDB SRS_Standard/Trafo_06/un02
+(format TRS)
+(fun a 1)
+(fun b 1)
+(rule (b (a (a (b (b x))))) (b (a (a (a (a (b (b x))))))))
+(rule (b (a (b (b x)))) (b (b x)))
+(rule (b (a (b (a (a (a (a (b x)))))))) (b (a (a (a (a (b (a (a (a (a (b (a (b (a (a (a (b (a (a (a (a (b x)))))))))))))))))))))))
+(rule (b (a (a (b (a (a (a (a (b x))))))))) (b (a (b (a (a (b (a (a (a (b (a (a (a (a (b x))))))))))))))))
+(rule (b (a (a (a (b (a (a (a (a (b x)))))))))) (b x))

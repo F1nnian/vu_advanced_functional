@@ -1,0 +1,13 @@
+; @author Takahito Aoto
+; @author Junichi Yoshida
+; @author Yoshihito Toyama
+; @doi 10.1007/978-1-4757-3661-8
+; @cops 68
+; [18] Exercise 4.2.2
+(format TRS)
+(fun b 1)
+(fun w 1)
+(rule (b (w x)) (w (w (w (b x)))))
+(rule (w (b x)) (b x))
+(rule (b (b x)) (w (w (w (w x)))))
+(rule (w (w x)) (w x))

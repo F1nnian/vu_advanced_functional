@@ -1,0 +1,11 @@
+; @author Takahito Aoto
+; @doi 10.4230/LIPIcs.FSCD.2016.33
+; @cops 572
+; [36] Example 11
+(format TRS)
+(fun + 2)
+(fun 0 0)
+(fun s 1)
+(rule (+ 0 y) y)
+(rule (+ (s 0) y) (s y))
+(rule (s (s x)) x)

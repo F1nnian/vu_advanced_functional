@@ -1,0 +1,16 @@
+; @author Thiago Felicissimo
+; @author Jean-Pierre Jouannaud
+; Example 9 of "Sort-Based Confluence Criteria for Non-Left-Linear Higher-Order Rewriting"
+; secret problem 2025
+; category: TRS
+(format TRS)
+(fun Eq 3)
+(fun S  1)
+(fun 0  0)
+(fun infty 0)
+(fun top 0)
+(fun bot 0)
+(rule infty (S infty))
+(rule (Eq (S X) X (S Z)) (Eq (S X) X Z))
+(rule (Eq X X X) top)
+(rule (Eq (S V) 0 V) bot)

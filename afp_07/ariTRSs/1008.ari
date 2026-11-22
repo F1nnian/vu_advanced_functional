@@ -1,0 +1,6 @@
+; @author Johannes Waldmann
+; @cops 1154
+(format TRS)
+(fun a 0)
+(fun f 2)
+(rule (f (f x a) a) (f (f a (f (f (f a x) a) a)) a))

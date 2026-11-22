@@ -1,0 +1,19 @@
+; @author Jan-Christoph Kassing
+; @author Alwin Schüßler
+; secret problem 2026
+; category: TRS
+
+(format TRS)
+(fun a 0)
+(fun b 0)
+(fun f 2)
+(fun h 3)
+(fun i 1)
+(fun g 1)
+
+(rule (f x a) a)
+(rule (f x b) b)
+(rule (h (g x) x (i x)) (h (i x) x (g x)))
+(rule (h (i x) x (g x)) (h (g x) x (i x)))
+(rule (f (g a) x) (f x x))
+(rule (f (g b) x) (f x x))

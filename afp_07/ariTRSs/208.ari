@@ -1,0 +1,10 @@
+; @cops 218
+; [8] TRS R_1 
+(format TRS)
+(fun a 0)
+(fun c 0)
+(fun f 2)
+(fun g 1)
+(rule (f x x) a)
+(rule c (g c))
+(rule (g x) (f x x))

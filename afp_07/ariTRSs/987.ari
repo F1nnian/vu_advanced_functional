@@ -1,0 +1,11 @@
+; @author Kiraku Shintani
+; @cops 1133
+; secret problem 2019
+; category: TRS
+(format TRS)
+(fun c 1)
+(fun t 3)
+(fun true 0)
+(rule (c (t x y z)) (c (t y x z)))
+(rule (c (t x y z)) (c (t x z y)))
+(rule (c (t x x z)) true)

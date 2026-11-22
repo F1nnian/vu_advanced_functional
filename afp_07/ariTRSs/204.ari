@@ -1,0 +1,11 @@
+; @doi 10.4230/LIPIcs.RTA.2012.165
+; @cops 214
+; [37] Section 4 (R_64)
+(format TRS)
+(fun a 0)
+(fun b 0)
+(fun f 1)
+(rule a b)
+(rule a (f a))
+(rule b (f (f b)))
+(rule (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f (f b)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) b)

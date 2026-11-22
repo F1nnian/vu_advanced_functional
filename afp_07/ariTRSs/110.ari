@@ -1,0 +1,18 @@
+; @doi 10.1007/s10817-011-9238-x
+; @cops 112
+; [33] Example 3
+(format TRS)
+(fun 0 0)
+(fun cons 2)
+(fun d 1)
+(fun hd 1)
+(fun inc 1)
+(fun nats 0)
+(fun s 1)
+(fun tl 1)
+(rule nats (cons 0 (inc nats)))
+(rule (inc (cons x y)) (cons (s x) (inc y)))
+(rule (inc (tl nats)) (tl (inc nats)))
+(rule (hd (cons x y)) x)
+(rule (tl (cons x y)) y)
+(rule (d (cons x y)) (cons x (cons x (d y))))

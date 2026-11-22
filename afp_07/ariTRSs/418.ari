@@ -1,0 +1,13 @@
+; @doi 10.4230/LIPIcs.CSL.2015.423
+; @cops 496
+; [102] p. 431 (NKH^1)
+(format TRS)
+(fun a 0)
+(fun b 0)
+(fun c 1)
+(fun f 2)
+(fun g 0)
+(rule (f x x) a)
+(rule (f x (c x)) b)
+(rule g (c g))
+(rule a b)

@@ -1,0 +1,10 @@
+; @author Yusuke Oi
+; @cops 1127
+; used by secret problem 2019 COPS #1128
+(format TRS)
+(fun - 2)
+(fun 0 0)
+(fun s 1)
+(rule (- 0 x) 0)
+(rule (- x 0) x)
+(rule (- (s x) (s y)) (- x y))

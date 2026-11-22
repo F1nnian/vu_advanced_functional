@@ -1,0 +1,15 @@
+; @doi 10.2168/LMCS-8(1:31)2012
+; @cops 122
+; [35] Example 3.35 (R_6)
+(format TRS)
+(fun + 2)
+(fun 0 0)
+(fun dbl 1)
+(fun s 1)
+(rule (+ 0 y) y)
+(rule (+ x 0) x)
+(rule (+ (s x) y) (s (+ x y)))
+(rule (+ x (s y)) (+ (s x) y))
+(rule (+ x (+ y z)) (+ (+ x y) z))
+(rule (+ x y) (+ y x))
+(rule (dbl x) (+ x x))

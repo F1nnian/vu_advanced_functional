@@ -1,0 +1,13 @@
+; @doi 10.1007/978-3-319-43144-4_18
+; @cops 503
+; [110] Example 4
+(format TRS)
+(fun a 0)
+(fun b 0)
+(fun c 0)
+(fun f 4)
+(rule (f a a b b) (f c c c c))
+(rule a b)
+(rule a c)
+(rule b a)
+(rule b c)

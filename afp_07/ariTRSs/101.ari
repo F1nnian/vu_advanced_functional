@@ -1,0 +1,9 @@
+; @author Takahito Aoto
+; @author Junichi Yoshida
+; @author Yoshihito Toyama
+; @cops 103
+; associative law + commutative law
+(format TRS)
+(fun f 2)
+(rule (f (f x y) z) (f x (f y z)))
+(rule (f x y) (f y x))

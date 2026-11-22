@@ -1,0 +1,15 @@
+; @author Takahito Aoto
+; @author Junichi Yoshida
+; @author Yoshihito Toyama
+; @doi 10.1007/11805618_6
+; @cops 23
+; [7] Example 6
+(format TRS)
+(fun 0 0)
+(fun cons 2)
+(fun from 1)
+(fun s 1)
+(fun sel 2)
+(rule (from x) (cons x (from (s x))))
+(rule (sel 0 (cons y z)) y)
+(rule (sel (s x) (cons y z)) (sel x z))

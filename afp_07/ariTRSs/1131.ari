@@ -1,0 +1,7 @@
+; @author Akihisa Yamada
+; @cops 1279
+(format TRS)
+(fun f 1)
+(fun g 1)
+(rule (f (g x)) (g (f (f x))))
+(rule (g x) x)

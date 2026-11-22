@@ -1,0 +1,14 @@
+; @author Aart Middeldorp
+; @cops 545
+; [120] Example 14
+(format TRS)
+(fun c 0)
+(fun g 1)
+(fun h 2)
+(fun k 1)
+(rule (g x) (h (k x) x))
+(rule (g x) x)
+(rule (h (k x) x) x)
+(rule (k c) c)
+(rule (h (k c) c) (g c))
+(rule (h c c) c)

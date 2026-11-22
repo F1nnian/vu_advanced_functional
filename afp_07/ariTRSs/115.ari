@@ -1,0 +1,9 @@
+; @author Dominik Klein
+; @doi 10.1007/978-3-642-28717-6_21
+; @cops 117
+; [34] Example 8
+(format TRS)
+(fun f 2)
+(fun plus 2)
+(rule (f x x) (plus (plus x x) x))
+(rule (plus x y) (plus y x))

@@ -1,0 +1,19 @@
+; @author Takahito Aoto
+; @author Junichi Yoshida
+; @author Yoshihito Toyama
+; @doi 10.1007/11805618_6
+; @cops 20
+; [7] Example 2
+(format TRS)
+(fun 0 0)
+(fun cons 2)
+(fun hd 1)
+(fun inc 1)
+(fun nats 0)
+(fun s 1)
+(fun tl 1)
+(rule nats (cons 0 (inc nats)))
+(rule (inc (cons x y)) (cons (s x) (inc y)))
+(rule (hd (cons x y)) x)
+(rule (tl (cons x y)) y)
+(rule (inc (tl nats)) (tl (inc nats)))

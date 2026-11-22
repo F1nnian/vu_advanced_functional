@@ -1,0 +1,21 @@
+; @author Aart Middeldorp
+; @doi 10.1016/j.jsc.2004.02.003
+; @cops 539
+; [116] p. 890 (R_+ union R_int)
+(format TRS)
+(fun + 2)
+(fun 0 1)
+(fun 1 1)
+(fun j 1)
+(fun sharp 0)
+(rule (0 sharp) sharp)
+(rule (+ x sharp) x)
+(rule (+ (0 x) (0 y)) (0 (+ x y)))
+(rule (+ (0 x) (1 y)) (1 (+ x y)))
+(rule (+ (1 x) (1 y)) (j (+ x (+ y (1 sharp)))))
+(rule (+ (0 x) (j y)) (j (+ x y)))
+(rule (+ (j x) (1 y)) (0 (+ x y)))
+(rule (+ (j x) (j y)) (1 (+ x (+ y (j sharp)))))
+(rule (+ x (+ y z)) (+ (+ x y) z))
+(rule (+ (+ x y) z) (+ x (+ y z)))
+(rule (+ x y) (+ y x))

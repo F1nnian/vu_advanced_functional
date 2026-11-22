@@ -1,0 +1,12 @@
+; @author Raul Gutierrez
+; @author Salvador Lucas
+; @doi 10.1007/3-540-45744-5_49
+; @cops 802
+; [153] Example 20
+(format TRS)
+(fun a 0)
+(fun b 0)
+(fun c 0)
+(fun f 3)
+(rule (f a b x) (f x x x))
+(rule a c)

@@ -1,0 +1,10 @@
+; @author Teppei Saito
+(format TRS)
+(fun f 2)
+(fun g 2)
+(fun h 2)
+(rule (f x y) x)
+(rule (f x y) (g x y))
+(rule (g x y) (g x y))
+(rule (h x y) y)
+(rule (h x y) (g x y))

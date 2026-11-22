@@ -1,0 +1,19 @@
+; @author Raul Gutierrez
+; @cops 1156
+; secret problem 2021
+; category: SRS
+(format TRS)
+(fun 0 1)
+(fun 1 1)
+(fun 2 1)
+(fun a 1)
+(fun b 1)
+(fun c 1)
+(rule (a (b x)) (b (c x)))
+(rule (a (c x)) (c (a x)))
+(rule (b (b x)) (a (c x)))
+(rule (c (b x)) (b (c x)))
+(rule (c (b x)) (c (c x)))
+(rule (c (c x)) (c (b x)))
+(rule (0 (1 (2 x))) (2 (0 (1 x))))
+(rule (2 (2 (2 (2 (2 (2 (2 (1 (1 (1 (1 (2 x)))))))))))) (2 (1 (2 (2 (0 (1 (2 (1 (1 (0 (1 (0 x)))))))))))))

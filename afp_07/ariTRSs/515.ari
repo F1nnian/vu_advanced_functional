@@ -1,0 +1,17 @@
+; @author Takahito Aoto
+; @cops 606
+; experiments for [125]
+(format TRS)
+(fun false 0)
+(fun implies 2)
+(fun not 1)
+(fun or 2)
+(fun true 0)
+(rule (not true) false)
+(rule (not false) true)
+(rule (or true y) true)
+(rule (or x true) true)
+(rule (or false false) false)
+(rule (implies true y) y)
+(rule (implies false y) true)
+(rule (implies x y) (or (not x) y))

@@ -1,0 +1,13 @@
+; @author Johannes Waldmann
+; @cops 1131
+; secret problem 2019
+; category: SRS
+(format TRS)
+(fun a 1)
+(fun b 1)
+(fun c 1)
+(rule (b x) (b (a (b x))))
+(rule (a x) (c (a (a x))))
+(rule (b x) (a (c (a x))))
+(rule (c x) (c (a (c x))))
+(rule (b x) (a (c (b x))))

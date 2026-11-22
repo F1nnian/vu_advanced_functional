@@ -1,0 +1,16 @@
+; @cops 942
+; TPDB SRS_Standard/Zantema_04/z067
+(format TRS)
+(fun P 1)
+(fun Q 1)
+(fun p 1)
+(fun q 1)
+(rule (P x) (Q (Q (p x))))
+(rule (p (p x)) (q (q x)))
+(rule (p (Q (Q x))) (Q (Q (p x))))
+(rule (Q (p (q x))) (q (p (Q x))))
+(rule (q (q (p x))) (p (q (q x))))
+(rule (q (Q x)) x)
+(rule (Q (q x)) x)
+(rule (p (P x)) x)
+(rule (P (p x)) x)

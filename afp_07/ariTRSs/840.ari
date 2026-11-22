@@ -1,0 +1,10 @@
+; @cops 985
+; TPDB SRS_Standard/Zantema_04/z084
+(format TRS)
+(fun a 1)
+(fun b 1)
+(fun c 1)
+(rule (b (c x)) (a x))
+(rule (b (b x)) (a (c x)))
+(rule (a x) (c (b x)))
+(rule (c (c (c x))) (b x))

@@ -1,0 +1,17 @@
+; @author Takahito Aoto
+; @author Junichi Yoshida
+; @author Yoshihito Toyama
+; @cops 99
+(format TRS)
+(fun B 1)
+(fun F 2)
+(fun G 1)
+(fun H 1)
+(fun I 1)
+(fun W 1)
+(rule (W (W x)) (W x))
+(rule (B (I x)) (W x))
+(rule (W (B x)) (B x))
+(rule (F (H x) y) (F (H x) (G y)))
+(rule (F x (I y)) (F (G x) (I y)))
+(rule (G x) x)

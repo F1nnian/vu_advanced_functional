@@ -1,0 +1,25 @@
+; @author Takahito Aoto
+; @author Junichi Yoshida
+; @author Yoshihito Toyama
+; @doi 10.1145/322248.322251
+; @cops 77
+; [22] Example 12.2
+(format TRS)
+(fun * 2)
+(fun + 2)
+(fun - 1)
+(fun 0 0)
+(fun 1 0)
+(rule (+ 0 x) x)
+(rule (+ (- x) x) 0)
+(rule (+ (+ x y) z) (+ x (+ y z)))
+(rule (+ x y) (+ y x))
+(rule (- 0) 0)
+(rule (- (- x)) x)
+(rule (- (+ x y)) (+ (- x) (- y)))
+(rule (* 1 x) x)
+(rule (* x (+ y z)) (+ (* x y) (* x z)))
+(rule (* (* x y) z) (* x (* y z)))
+(rule (* x y) (* y x))
+(rule (* x 0) 0)
+(rule (* x (- y)) (- (* x y)))

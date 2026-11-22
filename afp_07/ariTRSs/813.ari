@@ -1,0 +1,7 @@
+; @cops 958
+; TPDB SRS_Standard/Waldmann_06_SRS/jw1
+(format TRS)
+(fun a 1)
+(fun b 1)
+(rule (b (b (b x))) (a (a (a x))))
+(rule (a (a (a x))) (b (a (b x))))

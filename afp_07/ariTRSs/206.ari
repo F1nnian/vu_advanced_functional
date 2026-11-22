@@ -1,0 +1,17 @@
+; @cops 216
+; [38] Example 4
+(format TRS)
+(fun A 0)
+(fun B 0)
+(fun O 0)
+(fun f 2)
+(fun u 1)
+(fun v 1)
+(rule (f (u O) (u y)) A)
+(rule (f (v x) (v O)) B)
+(rule O (u O))
+(rule O (v O))
+(rule (u x) x)
+(rule (v x) x)
+(rule (f x y) (f x (u y)))
+(rule (f x y) (f (v x) y))

@@ -1,0 +1,14 @@
+; @author Bertram Felgenhauer
+; @cops 651
+; Cops #647 - #721: generated ground TRSs; evenly distributed in the
+; UNR/UNC/NFP/CR hierarchy
+(format TRS)
+(fun a 0)
+(fun b 0)
+(fun c 0)
+(fun f 1)
+(fun h 2)
+(rule b (f b))
+(rule b (f b))
+(rule (h (h (h (h (h (h (h a (h c (h (f c) b))) (h b (h b (h (f (f (h c b))) a)))) (h a a)) b) (f (h (h (f a) a) c))) a) (h c a)) (f a))
+(rule c (h b b))

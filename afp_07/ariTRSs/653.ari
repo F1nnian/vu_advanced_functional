@@ -1,0 +1,13 @@
+; @author Raul Gutierrez
+; @author Salvador Lucas
+; @doi 10.1016/j.ipl.2018.04.002
+; @cops 797
+; [150] Example 9
+(format TRS)
+(fun a 0)
+(fun b 0)
+(fun c 0)
+(fun f 2)
+(rule (f x x) c)
+(rule a b)
+(rule b a)

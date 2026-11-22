@@ -1,0 +1,20 @@
+; @author Aart Middeldorp
+; @doi 10.4230/LIPIcs.RTA.2013.318
+; @cops 537
+; [115] Example 3.16
+(format TRS)
+(fun * 2)
+(fun e 0)
+(fun f 1)
+(fun i 1)
+(rule (* e x) x)
+(rule (* (i x) x) e)
+(rule (i e) e)
+(rule (i (i x)) x)
+(rule (i (* x y)) (* (i x) (i y)))
+(rule (f (* x y)) (* (f x) (f y)))
+(rule (f e) e)
+(rule (f (i x)) (i (f x)))
+(rule (* (* x y) z) (* x (* y z)))
+(rule (* x (* y z)) (* (* x y) z))
+(rule (* x y) (* y x))

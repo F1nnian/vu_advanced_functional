@@ -1,0 +1,17 @@
+; @author Christina Kohl
+; @cops 1654
+; secret problem 2022
+; category: TRS
+(format TRS)
+(fun a 0)
+(fun b 0)
+(fun f 1)
+(fun g 1)
+(fun h 2)
+(rule (f (g x)) (h x x))
+(rule (g a) b)
+(rule (f x) (h x x))
+(rule b a)
+(rule (h x y) (h (g x) (g y)))
+(rule (g x) x)
+(rule a b)

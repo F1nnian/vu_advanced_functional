@@ -1,0 +1,10 @@
+; @cops 512
+; [111] Example 1
+(format TRS)
+(fun a 0)
+(fun b 0)
+(fun f 2)
+(rule a b)
+(rule (f x a) (f b b))
+(rule (f b x) (f b b))
+(rule (f (f x y) z) (f b b))

@@ -1,0 +1,19 @@
+; @author Takahito Aoto
+; @author Junichi Yoshida
+; @author Yoshihito Toyama
+; @cops 58
+; [14] p. 208
+(format TRS)
+(fun Ap 2)
+(fun D 0)
+(fun D0 0)
+(fun D1 0)
+(fun I 0)
+(fun K 0)
+(fun S 0)
+(rule (Ap (Ap (Ap S x) y) z) (Ap (Ap x z) (Ap y z)))
+(rule (Ap (Ap K x) y) x)
+(rule (Ap I x) x)
+(rule (Ap D0 (Ap (Ap D z0) z1)) z0)
+(rule (Ap D1 (Ap (Ap D z0) z1)) z1)
+(rule (Ap (Ap D (Ap D0 z)) (Ap D1 z)) z)

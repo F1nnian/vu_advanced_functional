@@ -1,0 +1,8 @@
+; @author Johannes Waldmann
+; @cops 1149
+; secret problem 2020
+; category: TRS
+(format TRS)
+(fun a 0)
+(fun f 2)
+(rule (f (f x a) a) (f (f (f (f a x) a) a) a))

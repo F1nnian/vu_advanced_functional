@@ -1,0 +1,5 @@
+; @author Munehiro Iwami
+(format TRS)
+(fun @ 2)
+(fun Q2 0)
+(rule (@ y (@ z x)) (@ (@ (@ Q2 x) y) z))

@@ -1,0 +1,11 @@
+; @author Takahito Aoto
+; @author Junichi Yoshida
+; @author Yoshihito Toyama
+; @doi 10.1145/322217.322230
+; @cops 45
+; [12] p. 811
+(format TRS)
+(fun H 1)
+(fun K 1)
+(rule (H (H x)) (K x))
+(rule (H (K x)) (K (H x)))

@@ -1,0 +1,16 @@
+; @author Takahito Aoto
+; @author Junichi Yoshida
+; @author Yoshihito Toyama
+; @cops 88
+; [27] Example 3.3
+(format TRS)
+(fun f 1)
+(fun p 1)
+(fun q 1)
+(fun r 1)
+(fun s 1)
+(rule (p x) (q x))
+(rule (p x) (r x))
+(rule (q x) (s (p x)))
+(rule (r x) (s (p x)))
+(rule (s x) (f (p x)))

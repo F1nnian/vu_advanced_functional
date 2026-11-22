@@ -1,0 +1,16 @@
+; @author Aart Middeldorp
+; @doi 10.4230/LIPIcs.RTA.2013.319
+; @cops 538
+; [115] Example 4.1
+(format TRS)
+(fun + 2)
+(fun 0 0)
+(fun a 0)
+(fun b 0)
+(fun g 1)
+(rule (+ a x) a)
+(rule (+ b (g a)) a)
+(rule (+ 0 x) x)
+(rule (+ x (+ y z)) (+ (+ x y) z))
+(rule (+ (+ x y) z) (+ x (+ y z)))
+(rule (+ x y) (+ y x))

@@ -1,0 +1,16 @@
+; @author Tsubasa Suzuki
+; @author Takahito Aoto
+; @author Yoshihito Toyama
+; @cops 252
+; from experiments for [44]
+(format TRS)
+(fun a 0)
+(fun c 0)
+(fun f 1)
+(fun g 1)
+(fun h 1)
+(fun k 1)
+(rule a (h c))
+(rule a (f c))
+(rule (f x) (h (g x)))
+(rule (h x) (f (k x)))

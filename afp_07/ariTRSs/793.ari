@@ -1,0 +1,11 @@
+; @cops 938
+; TPDB SRS_Standard/Secret_06_SRS/secr6
+(format TRS)
+(fun a 1)
+(fun b 1)
+(fun c 1)
+(rule (a (b (c x))) (c (c (c (b (b (b (a (a (a x))))))))))
+(rule (c (b x)) (a (a (a x))))
+(rule (a x) x)
+(rule (b x) x)
+(rule (c x) x)

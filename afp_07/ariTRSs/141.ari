@@ -1,0 +1,9 @@
+; @author Takahito Aoto
+; @author Yoshihito Toyama
+; @cops 143
+; full experiments for [35]
+(format TRS)
+(fun join 2)
+(rule (join x x) x)
+(rule (join x y) (join y x))
+(rule (join (join x y) z) (join x (join y z)))

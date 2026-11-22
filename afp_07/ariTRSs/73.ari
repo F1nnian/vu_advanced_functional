@@ -1,0 +1,19 @@
+; @author Takahito Aoto
+; @author Junichi Yoshida
+; @author Yoshihito Toyama
+; @doi 10.1007/BFb0052357
+; @cops 74
+; [21] TRS R_2
+(format TRS)
+(fun a 0)
+(fun b 0)
+(fun c 0)
+(fun d 0)
+(fun f 2)
+(rule a c)
+(rule b c)
+(rule (f a b) d)
+(rule (f x c) (f c c))
+(rule (f c x) (f c c))
+(rule d (f a c))
+(rule d (f c b))

@@ -1,0 +1,20 @@
+; @author Takahito Aoto
+; @author Junichi Yoshida
+; @author Yoshihito Toyama
+; @doi 10.1007/BFb0052357
+; @cops 73
+; [21] TRS R_1, attributed to Middeldorp
+(format TRS)
+(fun a 0)
+(fun b 0)
+(fun c 0)
+(fun f 1)
+(fun g 1)
+(fun h 1)
+(rule (f (g (g x))) a)
+(rule (f (g (h x))) b)
+(rule (f (h (g x))) b)
+(rule (f (h (h x))) c)
+(rule (g x) (h x))
+(rule a b)
+(rule b c)

@@ -1,0 +1,20 @@
+; @author Takahito Aoto
+; @author Junichi Yoshida
+; @author Yoshihito Toyama
+; @doi 10.1017/CBO9781139172752
+; @cops 5
+; [4] Exercise 6.18
+(format TRS)
+(fun a 0)
+(fun b 0)
+(fun c 0)
+(fun d 0)
+(fun f 1)
+(fun g 3)
+(fun h 2)
+(fun p 1)
+(fun q 1)
+(rule (f (g x a b)) x)
+(rule (p a) c)
+(rule (g (f (h c d)) x y) (h (p x) (q x)))
+(rule (q b) d)

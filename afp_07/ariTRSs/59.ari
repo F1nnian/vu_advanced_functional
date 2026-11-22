@@ -1,0 +1,20 @@
+; @author Takahito Aoto
+; @author Junichi Yoshida
+; @author Yoshihito Toyama
+; @cops 60
+; [16] Example 1
+(format TRS)
+(fun * 2)
+(fun + 2)
+(fun s 1)
+(fun sq 1)
+(rule (+ x (+ y z)) (+ (+ x y) z))
+(rule (+ (+ x y) z) (+ x (+ y z)))
+(rule (+ x y) (+ y x))
+(rule (+ (s x) y) (+ x (s y)))
+(rule (+ x (s y)) (+ (s x) y))
+(rule (* x (s y)) (+ x (* x y)))
+(rule (* (s x) y) (+ (* x y) y))
+(rule (* x y) (* y x))
+(rule (sq x) (* x x))
+(rule (sq (s x)) (+ (* x x) (s (+ x x))))

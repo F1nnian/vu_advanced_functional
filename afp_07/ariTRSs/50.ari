@@ -1,0 +1,19 @@
+; @author Takahito Aoto
+; @author Junichi Yoshida
+; @author Yoshihito Toyama
+; @cops 51
+; [13] Example 1
+(format TRS)
+(fun * 2)
+(fun - 1)
+(fun e 0)
+(rule (* e x) x)
+(rule (* (- x) x) e)
+(rule (* (* x y) z) (* x (* y z)))
+(rule (* (- x) (* x y)) y)
+(rule (* x e) x)
+(rule (- e) e)
+(rule (- (- x)) x)
+(rule (* x (- x)) e)
+(rule (* x (* (- x) y)) y)
+(rule (- (* x y)) (* (- y) (- x)))

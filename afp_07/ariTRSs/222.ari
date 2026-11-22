@@ -1,0 +1,15 @@
+; @author Tsubasa Suzuki
+; @author Takahito Aoto
+; @author Yoshihito Toyama
+; @doi 10.11309/jssst.30.3_148
+; @cops 233
+; [43] Example 5.15
+(format TRS)
+(fun f 2)
+(fun g 1)
+(fun h 1)
+(fun p 1)
+(rule (f x x) (f (g x) (g x)))
+(rule (f x y) (f (h x) (h y)))
+(rule (g x) (p x))
+(rule (h x) (p x))

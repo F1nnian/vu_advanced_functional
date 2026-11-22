@@ -1,0 +1,13 @@
+; @author Takahito Aoto
+; @doi 10.1016/0890-5401(90)90023-B
+; @cops 568
+; [122] p. 30
+(format TRS)
+(fun e 0)
+(fun f 2)
+(fun i 1)
+(rule (f x x) x)
+(rule (f x e) x)
+(rule (f e x) x)
+(rule (f x (i x)) e)
+(rule (f (i x) x) e)

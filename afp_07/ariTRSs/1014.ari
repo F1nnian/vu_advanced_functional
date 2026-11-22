@@ -1,0 +1,11 @@
+; @author Mizuhito Ogawa
+; @cops 1160
+; Nao Hirokawa submitted this problem as his proxy. The TRS was presented by Mizuhito Ogawa
+; at a TRS meeting around 2000.
+(format TRS)
+(fun a 0)
+(fun d 2)
+(fun f 1)
+(rule (d x x) x)
+(rule (f x) (d x (f x)))
+(rule a (f a))

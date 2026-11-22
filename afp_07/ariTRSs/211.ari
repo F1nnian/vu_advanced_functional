@@ -1,0 +1,9 @@
+; @cops 222
+; [39] TRS R_5
+(format TRS)
+(fun c 0)
+(fun f 3)
+(fun g 1)
+(fun h 5)
+(rule (f x x x) (h x x x x (g c)))
+(rule c (g c))

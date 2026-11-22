@@ -1,0 +1,46 @@
+cabal-version:      3.14
+name:               AFP
+
+version:            0.1.0.0
+
+author:             René Thiemann
+
+category:           Development
+build-type:         Simple
+
+common warnings
+    ghc-options: 
+      -O2 
+      -Wall 
+      -Wno-incomplete-patterns 
+      -Wno-incomplete-uni-patterns 
+      -Wno-unused-matches
+      -Wno-unused-top-binds
+      -Wno-missing-signatures
+      -Wno-name-shadowing
+
+executable Ex07
+    main-is:  Main.hs
+
+    other-modules: 
+        Demo07_Parser_CSV_V1
+      , Demo07_Parser_CSV_V2
+      , Demo07_Parser_CSV_V3
+      , TRS
+      , Exercise07
+      
+    default-extensions:
+      ExplicitForAll, 
+      RankNTypes,
+      ScopedTypeVariables,
+      FlexibleContexts
+
+    build-depends:    base >=4.19
+       , containers
+       , mtl  
+       , parsec
+       , bytestring
+
+    hs-source-dirs:   src
+
+    default-language: Haskell2010

@@ -1,0 +1,15 @@
+; @author Aart Middeldorp
+; @doi 10.1007/BF01190830
+; @cops 108
+; [30] Example 5.12
+(format TRS)
+(fun a 0)
+(fun b 0)
+(fun f 2)
+(fun g 2)
+(fun i 1)
+(fun j 1)
+(rule (f x x) (g (i b) x))
+(rule (g x x) (f x (i a)))
+(rule (i x) (j x))
+(rule a b)
